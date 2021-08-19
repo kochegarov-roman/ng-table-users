@@ -1,0 +1,26 @@
+
+<h2 class="block-header">
+  Table Users
+</h2>
+
+<ng-container *ngIf="!tableService.dataService.info$.getValue().length">
+  <div style="color: crimson">The table is empty, no data</div>
+</ng-container>
+
+<table class="table">
+  <tr>
+    <th *ngFor="let header of headersParams | visibilityHeaders"  [ngClass]="headersParams[header].hideColumnSm ? 'sm-d-none my-th' : 'my-th'">
+      <span (click)="setSorted(header)" [ngClass]="tableService.sortedParam[header]">{{header}}</span>
+    </th>
+  </tr>
+
+  <tbody>
+  <tr *ngFor="let info of tableService.dataService.info$ | async">
+    <td *ngFor="let header of headersParams | visibilityHeaders" class="my-td" [ngClass]="headersParams[header].hideColumnSm && 'sm-d-none'">
+      {{!headersParams[header].withPipe ? info[header] : info[header] | transformField: headersParams[header].pipeFunc}}</td>
+  </tr>
+  </tbody>
+</table>
+
+
+

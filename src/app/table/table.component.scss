@@ -1,0 +1,63 @@
+
+
+table{
+  margin: auto;
+}
+
+.ask{
+  &:after{
+    color: wheat;
+    content: '\21D3';
+    font-size: 1.2rem;
+  }
+}
+
+.desk{
+  &:after{
+    color: wheat;
+    font-size: 1.2rem;
+    content: '\21D1';
+  }
+}
+
+.table td, .table th {
+  padding: .45rem;
+  border-top:1px solid  hsla(0,0%,71%,.1);
+}
+
+.table {
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 1rem;
+  background-color: #202940;
+  color: #8b92a9;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.my-th:hover{
+  cursor: pointer;
+  color: wheat;
+}
+
+
+@media screen and (max-width: 900px) {
+  .table{
+    width: 100%;
+  }
+
+  .sm-d-none{
+    display: none;
+  }
+
+}
+
+@media screen and (min-width: 900px) {
+  .table{
+    max-width: 1200px;
+  }
+}
+
+
+
+

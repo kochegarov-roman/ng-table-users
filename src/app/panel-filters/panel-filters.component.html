@@ -1,0 +1,27 @@
+<p>Good afternoon my friend!</p>
+
+<div>
+  <h2>Panel Filter </h2>
+  <ng-container *ngIf="panelFiltersService.activeFilters$.getValue() | length">
+    <span class="times" (click)="panelFiltersService.clearFilters()">clear all</span>
+  </ng-container>
+</div>
+
+<div class="panel-filters">
+  <div *ngFor="let option of panelFiltersService.optionsData$ | async | entries" class="group-options">
+    <div class="title-option">{{option.key}} </div>
+    <div class="item-option" *ngFor="let optionInfo of option.value | entries | sortByCountValue">
+      <input type="checkbox"
+             class="checkbox"
+             id="option-{{option.key}}-{{optionInfo.key}}"
+             [checked]="isChecked({name: option.key, value: optionInfo.key})">
+
+      <label for="option-{{option.key}}-{{optionInfo.key}}"
+             (click)="toggleActiveFilters( {name: option.key, value: optionInfo.key})">
+        <span>{{optionInfo.key}}</span>
+        <span>({{optionInfo.value}})</span>
+      </label>
+    </div>
+  </div>
+
+</div>

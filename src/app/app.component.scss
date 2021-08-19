@@ -1,0 +1,19 @@
+
+
+.error{
+  border: 1px solid crimson;
+  border-radius: 6px;
+  padding: 10px;
+  width: max-content;
+  max-width: 50%;
+  margin: auto;
+  overflow: hidden;
+
+  .name-error{
+    color: crimson;
+  }
+
+  .message-error{
+    font-size: 0.7rem;
+  }
+}
